@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { apologyContent } from "@/content/apology";
 import { HeartGraphic } from "@/components/ui/HeartGraphic";
-import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { Send, RotateCcw, AlertCircle, MessageSquare } from "lucide-react";
 
 interface FinalMessageProps {
@@ -197,18 +196,6 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
             <p className="text-xs text-[#32050B]/85 leading-relaxed pt-1">
               Now go tease him in real life and demand your apology snacks from Him 😂❤️
             </p>
-
-            <a
-              href={getWhatsAppUrl(
-                responseId,
-                `❤️ Pvi completed your apology website!\n\nNote: ${pviMessage || "(No note)"}`
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 px-4 rounded-2xl bg-[#25D366] text-white font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 hover:bg-[#20bd5a] transition-all cursor-pointer mt-3"
-            >
-              <span>Notify Aji on WhatsApp 💬</span>
-            </a>
           </motion.div>
         )}
 
