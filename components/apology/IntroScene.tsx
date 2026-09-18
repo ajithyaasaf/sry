@@ -54,7 +54,11 @@ export function IntroScene({ onNext }: IntroSceneProps) {
 
       <motion.div variants={itemVariants} className="space-y-3 mb-8">
         <p className="text-lg text-[#F5E9E2] font-semibold">{intro.line1}</p>
-        <p className="text-base text-[#F5E9E2]/80 italic">{intro.line2}</p>
+        {"line2" in intro && Boolean((intro as Record<string, unknown>).line2) && (
+          <p className="text-base text-[#F5E9E2]/80 italic">
+            {String((intro as Record<string, unknown>).line2)}
+          </p>
+        )}
         <p className="text-sm text-[#F5E9E2]/90">{intro.line3}</p>
         <p className="text-sm font-semibold text-[#F5E9E2]">{intro.line4}</p>
       </motion.div>

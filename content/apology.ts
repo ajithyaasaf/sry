@@ -5,7 +5,6 @@ export const apologyContent = {
   intro: {
     greeting: "Hey Pvi...",
     line1: "I know you're angry 🥺",
-    // line2: "Okay okay...",
     line3: "You asked me to say sorry 50 times.",
     line4: "So I made a solution.",
     button: "Let's do this",
