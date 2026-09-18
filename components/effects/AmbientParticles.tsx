@@ -38,18 +38,18 @@ export function AmbientParticles() {
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-[#FF91A4]"
+          className="absolute rounded-full bg-[#F5E9E2]"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
             width: `${p.size}px`,
             height: `${p.size}px`,
-            boxShadow: "0 0 8px 1px rgba(240, 90, 114, 0.4)",
+            boxShadow: "0 0 10px 2px rgba(245, 233, 226, 0.45)",
           }}
           animate={{
-            y: ["0px", "-40px", "0px"],
+            y: ["0px", "-45px", "0px"],
             x: ["0px", `${(p.id % 2 === 0 ? 1 : -1) * 15}px`, "0px"],
-            opacity: [p.opacity * 0.4, p.opacity, p.opacity * 0.4],
+            opacity: [p.opacity * 0.3, p.opacity, p.opacity * 0.3],
           }}
           transition={{
             duration: p.duration,
@@ -60,9 +60,9 @@ export function AmbientParticles() {
         />
       ))}
 
-      {/* Subtle warm glow radial gradients */}
-      <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-[#F05A72]/10 blur-3xl" />
-      <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-[#FF91A4]/8 blur-3xl" />
+      {/* Subtle warm glow radial gradients using crimson and cream */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#F5E9E2]/8 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#C53041]/35 blur-3xl pointer-events-none" />
     </div>
   );
 }

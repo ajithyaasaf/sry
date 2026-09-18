@@ -90,7 +90,7 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
               initial={{ opacity: 0, y: -5 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="text-xs text-[#FFD166] font-medium mt-2 bg-[#FFD166]/10 px-3 py-1 rounded-full border border-[#FFD166]/20"
+              className="text-xs text-[#F5E9E2] font-semibold mt-2 bg-[#F5E9E2]/15 px-3 py-1 rounded-full border border-[#F5E9E2]/30"
             >
               Okay, why are you still tapping this? 😂❤️
             </motion.p>
@@ -98,39 +98,39 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
         </AnimatePresence>
       </div>
 
-      {/* The Warm Paper Apology Letter - Matches user screenshot Image 4 */}
+      {/* The Warm Paper Apology Letter in Silk Cream */}
       <div className="w-full my-auto py-4">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-[#FFF7F1] text-[#100B0D] rounded-3xl p-6 sm:p-7 shadow-2xl border border-[#F7ECE4] text-left relative overflow-hidden"
+          className="bg-[#F5E9E2] text-[#32050B] rounded-3xl p-6 sm:p-7 shadow-2xl border-2 border-[#C53041]/20 text-left relative overflow-hidden"
         >
-          <span className="text-[11px] font-mono tracking-widest text-[#F05A72] uppercase font-bold block mb-2">
+          <span className="text-[11px] font-mono tracking-widest text-[#C53041] uppercase font-bold block mb-2">
             Final Dispatch
           </span>
 
-          <h3 className="font-serif text-2xl font-bold text-[#100B0D] mb-1">
+          <h3 className="font-serif text-2xl font-bold text-[#32050B] mb-1">
             {finalCard.title}
           </h3>
 
-          <p className="font-serif text-xl text-[#F05A72] font-semibold mb-4 inline-flex items-center gap-1.5">
+          <p className="font-serif text-xl text-[#C53041] font-semibold mb-4 inline-flex items-center gap-1.5">
             <span>{finalCard.heading}</span>
             <HeartGraphic size={22} inline />
           </p>
 
-          <div className="space-y-3 text-xs sm:text-sm text-[#100B0D]/85 leading-relaxed font-sans">
+          <div className="space-y-3 text-xs sm:text-sm text-[#32050B]/90 leading-relaxed font-sans">
             <p>{finalCard.p1}</p>
-            <p className="italic text-[#100B0D]/70">{finalCard.p2}</p>
-            <p className="font-medium text-[#100B0D]">{finalCard.p3}</p>
+            <p className="italic text-[#32050B]/75">{finalCard.p2}</p>
+            <p className="font-medium text-[#32050B]">{finalCard.p3}</p>
             {/* Replaced 'Now come talk to me' with cute teasing line */}
-            <p className="font-semibold text-[#F05A72] text-sm pt-1">
+            <p className="font-semibold text-[#C53041] text-sm pt-1">
               {finalCard.p4}
             </p>
           </div>
 
-          {/* Signoff: — Aji [heart] as requested in Image 1 */}
-          <div className="mt-5 pt-3 border-t border-[#100B0D]/10 flex justify-end">
-            <span className="font-serif italic font-bold text-[#100B0D] text-sm inline-flex items-center gap-1">
+          {/* Signoff: — Aji [heart] */}
+          <div className="mt-5 pt-3 border-t border-[#C53041]/15 flex justify-end">
+            <span className="font-serif italic font-bold text-[#32050B] text-sm inline-flex items-center gap-1">
               {finalCard.signoff} <HeartGraphic size={18} inline />
             </span>
           </div>
@@ -141,8 +141,8 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
       <div className="w-full space-y-4">
         {!responseId ? (
           <form onSubmit={handleSubmit} className="space-y-3 text-left">
-            <div className="flex items-center gap-1.5 text-xs text-[#FFF7F1] font-medium">
-              <MessageSquare className="w-3.5 h-3.5 text-[#FF91A4]" />
+            <div className="flex items-center gap-1.5 text-xs text-[#F5E9E2] font-semibold">
+              <MessageSquare className="w-3.5 h-3.5 text-[#F5E9E2]" />
               <span>Leave a note / roast for Aji ❤️</span>
             </div>
 
@@ -152,13 +152,13 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
                 onChange={(e) => setPviMessage(e.target.value)}
                 placeholder="Type anything you want to tell Aji before sending... (optional) ✍️"
                 rows={3}
-                className="w-full p-3.5 bg-[#191013] border border-[#FFF7F5]/15 rounded-2xl text-xs sm:text-sm text-[#FFF7F5] placeholder-[#CDB9BA]/40 focus:outline-none focus:border-[#F05A72] transition-colors resize-none shadow-inner"
+                className="w-full p-3.5 bg-[#220408] border border-[#F5E9E2]/30 rounded-2xl text-xs sm:text-sm text-[#F5E9E2] placeholder-[#F5E9E2]/40 focus:outline-none focus:border-[#F5E9E2] transition-colors resize-none shadow-inner"
               />
             </div>
 
             {submitError && (
-              <p className="text-xs text-[#FF91A4] bg-[#F05A72]/15 p-3 rounded-xl border border-[#F05A72]/30 flex items-center gap-1.5">
-                <AlertCircle className="w-4 h-4 shrink-0" />
+              <p className="text-xs text-[#F5E9E2] bg-[#F5E9E2]/15 p-3 rounded-xl border border-[#F5E9E2]/30 flex items-center gap-1.5">
+                <AlertCircle className="w-4 h-4 shrink-0 text-[#F5E9E2]" />
                 <span>{submitError}</span>
               </p>
             )}
@@ -168,9 +168,9 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
               disabled={submitting}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#F05A72] to-[#FF91A4] text-white font-semibold text-sm shadow-xl shadow-[#F05A72]/30 flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-50"
+              className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer transition-all hover:bg-white disabled:opacity-50"
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-4 h-4 text-[#C53041]" />
               <span>{submitting ? "Sending to Aji..." : "Send to Aji ❤️"}</span>
             </motion.button>
           </form>
@@ -178,19 +178,19 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-[#22161A] border border-[#F05A72]/30 rounded-3xl p-6 text-center space-y-3 shadow-xl"
+            className="bg-[#F5E9E2] text-[#32050B] border-2 border-[#C53041]/20 rounded-3xl p-6 text-center space-y-3 shadow-2xl"
           >
-            <div className="w-12 h-12 rounded-full bg-[#F05A72]/15 flex items-center justify-center mx-auto">
+            <div className="w-12 h-12 rounded-full bg-[#C53041]/15 flex items-center justify-center mx-auto">
               <HeartGraphic size={28} animate />
             </div>
-            <h4 className="font-serif text-xl font-bold text-[#FFF7F1] flex items-center justify-center gap-1.5">
+            <h4 className="font-serif text-xl font-bold text-[#32050B] flex items-center justify-center gap-1.5">
               <span>Delivered to Aji</span>
               <HeartGraphic size={20} inline />
             </h4>
-            <p className="text-sm text-[#FF91A4] font-medium">
+            <p className="text-sm text-[#C53041] font-bold">
               He got all your answers and your note!
             </p>
-            <p className="text-xs text-[#CDB9BA] leading-relaxed pt-1">
+            <p className="text-xs text-[#32050B]/85 leading-relaxed pt-1">
               Now go tease him in real life and demand your apology snacks from Him 😂❤️
             </p>
           </motion.div>
@@ -199,7 +199,7 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
         {/* Restart Button */}
         <button
           onClick={onRestart}
-          className="inline-flex items-center justify-center gap-1.5 text-xs text-[#CDB9BA]/70 hover:text-[#FFF7F5] transition-colors py-2 px-4 rounded-xl cursor-pointer"
+          className="inline-flex items-center justify-center gap-1.5 text-xs text-[#F5E9E2]/75 hover:text-white transition-colors py-2 px-4 rounded-xl cursor-pointer"
         >
           <RotateCcw className="w-3 h-3" />
           <span>Start Again</span>

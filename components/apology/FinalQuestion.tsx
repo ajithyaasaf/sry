@@ -26,10 +26,10 @@ export function FinalQuestion({ onSelect, onProceed }: FinalQuestionProps) {
       {/* Header */}
       <div className="w-full">
         <HeartGraphic size={64} animate glow className="mb-4" />
-        <span className="text-xs font-mono uppercase tracking-widest text-[#FF91A4] font-semibold">
+        <span className="text-xs font-mono uppercase tracking-widest text-[#F5E9E2]/80 font-semibold">
           {config.title}
         </span>
-        <h2 className="font-serif text-3xl sm:text-4xl text-[#FFF7F1] font-medium mt-2">
+        <h2 className="font-serif text-3xl sm:text-4xl text-[#F5E9E2] font-medium mt-2">
           {config.subtitle}
         </h2>
       </div>
@@ -42,9 +42,9 @@ export function FinalQuestion({ onSelect, onProceed }: FinalQuestionProps) {
               onClick={() => handleChoose("okay")}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.96 }}
-              className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#F05A72] to-[#FF91A4] text-white font-semibold text-base shadow-xl shadow-[#F05A72]/30 flex items-center justify-center gap-2 cursor-pointer transition-all hover:brightness-105"
+              className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-base shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer transition-all hover:bg-white"
             >
-              <Heart className="w-5 h-5 fill-white" />
+              <Heart className="w-5 h-5 fill-[#C53041] text-[#C53041]" />
               <span>{config.options.okay.label}</span>
             </motion.button>
 
@@ -52,7 +52,7 @@ export function FinalQuestion({ onSelect, onProceed }: FinalQuestionProps) {
               onClick={() => handleChoose("angry")}
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.96 }}
-              className="w-full py-4 px-6 rounded-2xl bg-[#191013] border border-[#FFF7F5]/20 text-[#CDB9BA] font-medium text-base hover:text-[#FFF7F1] hover:border-[#FFF7F5]/40 flex items-center justify-center gap-2 cursor-pointer transition-all"
+              className="w-full py-4 px-6 rounded-2xl bg-[#3A060E]/75 border border-[#F5E9E2]/30 text-[#F5E9E2] font-medium text-base hover:border-[#F5E9E2]/60 hover:text-white flex items-center justify-center gap-2 cursor-pointer transition-all"
             >
               <span>{config.options.angry.label}</span>
             </motion.button>
@@ -61,21 +61,21 @@ export function FinalQuestion({ onSelect, onProceed }: FinalQuestionProps) {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-[#22161A] border border-emerald-500/30 rounded-3xl p-6 text-center space-y-3 shadow-2xl"
+            className="bg-[#F5E9E2] text-[#32050B] border-2 border-[#C53041]/20 rounded-3xl p-6 text-center space-y-3 shadow-2xl"
           >
-            <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+            <div className="w-12 h-12 rounded-full bg-[#C53041]/15 text-[#C53041] flex items-center justify-center mx-auto">
               <ThumbsUp className="w-6 h-6" />
             </div>
-            <h3 className="font-serif text-2xl font-bold text-[#FFF7F1]">
+            <h3 className="font-serif text-2xl font-bold text-[#32050B]">
               {config.options.okay.heading}
             </h3>
-            <p className="text-sm text-emerald-400 font-medium">
+            <p className="text-sm text-[#C53041] font-semibold">
               {config.options.okay.message}
             </p>
-            <p className="text-xs text-[#CDB9BA]">
+            <p className="text-xs text-[#32050B]/80">
               {config.options.okay.p1}
             </p>
-            <p className="text-xs text-[#FF91A4] font-semibold italic">
+            <p className="text-xs text-[#C53041] font-semibold italic">
               {config.options.okay.p2}
             </p>
           </motion.div>
@@ -83,21 +83,21 @@ export function FinalQuestion({ onSelect, onProceed }: FinalQuestionProps) {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-[#22161A] border border-[#F05A72]/30 rounded-3xl p-6 text-center space-y-3 shadow-2xl"
+            className="bg-[#F5E9E2] text-[#32050B] border-2 border-[#C53041]/20 rounded-3xl p-6 text-center space-y-3 shadow-2xl"
           >
-            <div className="w-12 h-12 rounded-full bg-[#F05A72]/20 text-[#FF91A4] flex items-center justify-center mx-auto">
+            <div className="w-12 h-12 rounded-full bg-[#C53041]/15 text-[#C53041] flex items-center justify-center mx-auto">
               <ShieldAlert className="w-6 h-6" />
             </div>
-            <h3 className="font-serif text-2xl font-bold text-[#FFF7F1]">
+            <h3 className="font-serif text-2xl font-bold text-[#32050B]">
               {config.options.angry.heading}
             </h3>
-            <p className="text-sm text-[#FF91A4] font-medium">
+            <p className="text-sm text-[#C53041] font-semibold">
               {config.options.angry.message}
             </p>
-            <p className="text-xs text-[#CDB9BA]">
+            <p className="text-xs text-[#32050B]/80">
               {config.options.angry.p1}
             </p>
-            <p className="text-xs text-[#FFF7F1] font-semibold italic">
+            <p className="text-xs text-[#C53041] font-semibold italic">
               {config.options.angry.p2}
             </p>
           </motion.div>
@@ -113,10 +113,10 @@ export function FinalQuestion({ onSelect, onProceed }: FinalQuestionProps) {
             onClick={() => onProceed(selected === "okay" ? "okay" : "angry")}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#F05A72] to-[#FF91A4] text-white font-medium text-sm shadow-lg shadow-[#F05A72]/25 flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer hover:bg-white transition-all"
           >
             <span>Continue to final note</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#C53041]" />
           </motion.button>
         )}
       </div>

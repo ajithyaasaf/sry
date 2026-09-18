@@ -22,7 +22,7 @@ export const viewport: Viewport = {
   maximumScale: 1,
   userScalable: false,
   viewportFit: "cover",
-  themeColor: "#100B0D",
+  themeColor: "#C53041",
 };
 
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${jakarta.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#100B0D] text-[#FFF7F5] font-sans selection:bg-[#F05A72] selection:text-white flex flex-col justify-center relative overflow-x-hidden">
+      <body className="min-h-full font-sans selection:bg-[#F5E9E2] selection:text-[#C53041] flex flex-col justify-center relative overflow-x-hidden">
         {/* Background Atmosphere */}
         <AmbientParticles />
         <Grain />

@@ -4,26 +4,40 @@
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
-  --color-bg-main: #100B0D;
-  --color-bg-secondary: #191013;
-  --color-card: #22161A;
-  --color-paper: #FFF7F1;
-  --color-rose-primary: #F05A72;
-  --color-rose-light: #FF91A4;
-  --color-text-primary: #FFF7F5;
-  --color-text-muted: #CDB9BA;
+  --color-crimson: #C53041;
+  --color-cream: #F5E9E2;
+  --color-crimson-light: #D94254;
+  --color-crimson-mid: #9E1C2B;
+  --color-crimson-dark: #660E1A;
+  --color-crimson-deep: #3A060E;
+  
+  --color-paper: #F5E9E2;
+  --color-text-cream: #F5E9E2;
+  --color-text-crimson: #C53041;
+  --color-text-dark: #32050B;
 }
 
 :root {
-  --background: #100B0D;
-  --foreground: #FFF7F5;
+  --background: #C53041;
+  --foreground: #F5E9E2;
 }
 
-html, body {
-  background-color: #100B0D;
-  color: #FFF7F5;
+html {
+  background-color: #3A060E;
+}
+
+body {
+  background: radial-gradient(circle at 50% 15%, #C53041 0%, #8A1523 50%, #3A060E 100%);
+  background-attachment: fixed;
+  color: #F5E9E2;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior: none;
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: #F5E9E2;
+  color: #C53041;
 }
 
 /* Ensure buttons don't select text when rapidly tapped */
@@ -38,23 +52,23 @@ input[type=range]::-webkit-slider-thumb {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #FFF7F1;
-  border: 3px solid #F05A72;
-  box-shadow: 0 2px 10px rgba(240, 90, 114, 0.5);
+  background: #F5E9E2;
+  border: 3.5px solid #C53041;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   transition: transform 0.1s ease;
 }
 
 input[type=range]:active::-webkit-slider-thumb {
-  transform: scale(1.15);
+  transform: scale(1.18);
 }
 
 input[type=range]::-moz-range-thumb {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #FFF7F1;
-  border: 3px solid #F05A72;
-  box-shadow: 0 2px 10px rgba(240, 90, 114, 0.5);
+  background: #F5E9E2;
+  border: 3.5px solid #C53041;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }

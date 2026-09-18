@@ -85,22 +85,22 @@ export function VoiceMessage({ onNext }: VoiceMessageProps) {
     return (
       <div className="flex flex-col items-center justify-between px-4 py-8 min-h-[82vh] max-w-sm mx-auto text-center">
         <div className="w-full">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#FF91A4] font-semibold">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#F5E9E2]/80 font-semibold">
             One more thing...
           </span>
-          <h2 className="font-serif text-2xl sm:text-3xl text-[#FFF7F1] font-medium mt-1">
+          <h2 className="font-serif text-2xl sm:text-3xl text-[#F5E9E2] font-medium mt-1">
             Almost at the finish line!
           </h2>
         </div>
 
-        <div className="w-full my-auto py-6 bg-[#191013] border border-[#FFF7F5]/10 rounded-3xl p-6 shadow-xl space-y-3">
-          <div className="w-12 h-12 rounded-full bg-[#F05A72]/15 flex items-center justify-center mx-auto text-[#FF91A4]">
+        <div className="w-full my-auto py-6 bg-[#3A060E]/75 border border-[#F5E9E2]/20 rounded-3xl p-6 shadow-2xl space-y-3">
+          <div className="w-12 h-12 rounded-full bg-[#F5E9E2]/15 flex items-center justify-center mx-auto text-[#F5E9E2]">
             <Mic className="w-5 h-5" />
           </div>
-          <p className="font-serif text-lg text-[#FFF7F1]">
+          <p className="font-serif text-lg text-[#F5E9E2]">
             &ldquo;Now prepare yourself for the final verdict.&rdquo;
           </p>
-          <p className="text-xs text-[#CDB9BA]">
+          <p className="text-xs text-[#F5E9E2]/80">
             You have endured 50+ sorries. Let&apos;s see if it actually worked 😂
           </p>
         </div>
@@ -110,10 +110,10 @@ export function VoiceMessage({ onNext }: VoiceMessageProps) {
             onClick={onNext}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#F05A72] to-[#FF91A4] text-white font-medium text-sm shadow-lg shadow-[#F05A72]/25 flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer hover:bg-white transition-all"
           >
             <span>Proceed to the verdict</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#C53041]" />
           </motion.button>
         </div>
       </div>
@@ -135,24 +135,24 @@ export function VoiceMessage({ onNext }: VoiceMessageProps) {
 
       {/* Header */}
       <div className="w-full">
-        <span className="text-xs font-mono uppercase tracking-widest text-[#FF91A4] font-semibold flex items-center justify-center gap-1.5">
-          <Volume2 className="w-3.5 h-3.5" /> Voice Note
+        <span className="text-xs font-mono uppercase tracking-widest text-[#F5E9E2]/80 font-semibold flex items-center justify-center gap-1.5">
+          <Volume2 className="w-3.5 h-3.5 text-[#F5E9E2]" /> Voice Note
         </span>
-        <h2 className="font-serif text-2xl sm:text-3xl text-[#FFF7F1] font-medium mt-1">
+        <h2 className="font-serif text-2xl sm:text-3xl text-[#F5E9E2] font-medium mt-1">
           {voiceConfig.title}
         </h2>
-        <p className="text-xs text-[#CDB9BA] mt-1">{voiceConfig.subtitle}</p>
+        <p className="text-xs text-[#F5E9E2]/80 mt-1">{voiceConfig.subtitle}</p>
       </div>
 
       {/* Touch-Friendly Player Card */}
       <div className="w-full my-auto py-6">
-        <div className="bg-[#191013] border border-[#F05A72]/25 rounded-3xl p-6 shadow-2xl space-y-5">
-          {/* Big Circular Play Button */}
+        <div className="bg-[#3A060E]/75 border border-[#F5E9E2]/20 rounded-3xl p-6 shadow-2xl space-y-5">
+          {/* Big Circular Play Button in Silk Cream */}
           <motion.button
             onClick={togglePlay}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.92 }}
-            className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#F05A72] to-[#FF91A4] text-white mx-auto flex items-center justify-center shadow-xl shadow-[#F05A72]/30 cursor-pointer"
+            className="w-20 h-20 rounded-full bg-[#F5E9E2] text-[#C53041] mx-auto flex items-center justify-center shadow-2xl shadow-black/30 cursor-pointer hover:bg-white transition-all"
             aria-label={isPlaying ? "Pause voice message" : "Play voice message"}
           >
             {isPlaying ? (
@@ -164,21 +164,21 @@ export function VoiceMessage({ onNext }: VoiceMessageProps) {
 
           {/* Progress Bar & Timers */}
           <div className="space-y-2">
-            <div className="w-full h-2 bg-[#100B0D] rounded-full overflow-hidden">
+            <div className="w-full h-2 bg-[#220408] rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#F05A72] rounded-full transition-all"
+                className="h-full bg-[#F5E9E2] rounded-full transition-all"
                 style={{
                   width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%`,
                 }}
               />
             </div>
-            <div className="flex justify-between text-[11px] font-mono text-[#CDB9BA]">
+            <div className="flex justify-between text-[11px] font-mono text-[#F5E9E2]/75">
               <span>{formatTime(currentTime)}</span>
               <span>{formatTime(duration)}</span>
             </div>
           </div>
 
-          <p className="text-xs text-[#FFF7F5]/80 font-medium">
+          <p className="text-xs text-[#F5E9E2]/90 font-medium">
             {isPlaying ? "Playing voice note... 🎙️" : "Tap to listen"}
           </p>
         </div>
@@ -190,10 +190,10 @@ export function VoiceMessage({ onNext }: VoiceMessageProps) {
           onClick={onNext}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.95 }}
-          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#F05A72] to-[#FF91A4] text-white font-medium text-sm shadow-lg shadow-[#F05A72]/25 flex items-center justify-center gap-2 cursor-pointer"
+          className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer hover:bg-white transition-all"
         >
           <span>Continue ❤️</span>
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight className="w-4 h-4 text-[#C53041]" />
         </motion.button>
       </div>
     </div>

@@ -45,7 +45,7 @@ export function HeartGraphic({
     >
       {glow && (
         <div
-          className="absolute inset-0 rounded-full blur-xl bg-[#F05A72]/30 pointer-events-none"
+          className="absolute inset-0 rounded-full blur-xl bg-[#F5E9E2]/35 pointer-events-none"
           style={{ transform: "scale(1.3)" }}
         />
       )}

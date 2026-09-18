@@ -12,7 +12,7 @@ interface CelebrationSceneProps {
 export function CelebrationScene({ onNext }: CelebrationSceneProps) {
   const shouldReduceMotion = useReducedMotion();
 
-  // Subtle confetti / heart sparkles with pure deterministic positions
+  // Subtle confetti / heart sparkles with pure deterministic positions in cream and crimson
   const sparkles = useMemo(() => {
     return Array.from({ length: 18 }).map((_, i) => ({
       id: i,
@@ -20,7 +20,7 @@ export function CelebrationScene({ onNext }: CelebrationSceneProps) {
       y: ((i * 47) % 320) - 160,
       size: 4 + (i % 5) * 2,
       delay: (i * 0.12) % 0.8,
-      color: i % 2 === 0 ? "#F05A72" : "#FFD166",
+      color: i % 2 === 0 ? "#F5E9E2" : "#C53041",
     }));
   }, []);
 
@@ -58,8 +58,8 @@ export function CelebrationScene({ onNext }: CelebrationSceneProps) {
 
       {/* Header */}
       <div className="w-full">
-        <div className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-widest text-[#FFD166] bg-[#FFD166]/10 border border-[#FFD166]/20 px-3 py-1 rounded-full mb-4">
-          <Sparkles className="w-3.5 h-3.5" /> Forgiveness Achieved
+        <div className="inline-flex items-center gap-1 text-xs font-mono uppercase tracking-widest text-[#F5E9E2] bg-[#F5E9E2]/15 border border-[#F5E9E2]/30 px-3.5 py-1 rounded-full mb-4">
+          <Sparkles className="w-3.5 h-3.5 text-[#F5E9E2]" /> Forgiveness Achieved
         </div>
         <HeartGraphic size={76} animate glow className="mb-2" />
       </div>
@@ -71,14 +71,14 @@ export function CelebrationScene({ onNext }: CelebrationSceneProps) {
         transition={{ delay: 0.3 }}
         className="w-full my-auto space-y-4 py-6"
       >
-        <h2 className="font-serif text-3xl sm:text-4xl text-[#FFF7F1] font-bold">
+        <h2 className="font-serif text-3xl sm:text-4xl text-[#F5E9E2] font-bold">
           YESSS 😭❤️
         </h2>
-        <div className="space-y-2 text-sm sm:text-base text-[#CDB9BA]">
-          <p className="text-[#FFF7F1] font-medium text-lg">
+        <div className="space-y-2 text-sm sm:text-base text-[#F5E9E2]/85">
+          <p className="text-[#F5E9E2] font-semibold text-lg">
             Okay, we&apos;re officially good.
           </p>
-          <p className="italic text-xs text-[#CDB9BA]/80">Probably.</p>
+          <p className="italic text-xs text-[#F5E9E2]/80">Probably.</p>
           <p className="text-xl pt-1">😂❤️</p>
         </div>
       </motion.div>
@@ -89,10 +89,10 @@ export function CelebrationScene({ onNext }: CelebrationSceneProps) {
           onClick={onNext}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.95 }}
-          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#F05A72] to-[#FF91A4] text-white font-medium text-sm shadow-lg shadow-[#F05A72]/25 flex items-center justify-center gap-2 cursor-pointer"
+          className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer hover:bg-white transition-all"
         >
           <span>Read my final message</span>
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight className="w-4 h-4 text-[#C53041]" />
         </motion.button>
       </div>
     </div>

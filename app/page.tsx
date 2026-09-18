@@ -146,7 +146,7 @@ export default function ApologyPage() {
   if (!isMounted) {
     return (
       <main className="min-h-screen flex items-center justify-center p-4">
-        <div className="w-8 h-8 rounded-full border-2 border-[#F05A72] border-t-transparent animate-spin" />
+        <div className="w-8 h-8 rounded-full border-2 border-[#F5E9E2] border-t-transparent animate-spin" />
       </main>
     );
   }

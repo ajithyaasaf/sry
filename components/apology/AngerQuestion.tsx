@@ -24,10 +24,10 @@ export function AngerQuestion({ initialChoice, onSelect, onNext }: AngerQuestion
   return (
     <div className="flex flex-col items-center justify-center px-4 py-8 min-h-[80vh] max-w-sm mx-auto text-center">
       {/* Title */}
-      <span className="text-xs font-mono uppercase tracking-widest text-[#FF91A4] mb-2 font-semibold">
+      <span className="text-xs font-mono uppercase tracking-widest text-[#F5E9E2]/80 mb-2 font-semibold">
         {initialQuestion.title}
       </span>
-      <h2 className="font-serif text-2xl sm:text-3xl text-[#FFF7F1] font-medium mb-6">
+      <h2 className="font-serif text-2xl sm:text-3xl text-[#F5E9E2] font-medium mb-6">
         {initialQuestion.question}
       </h2>
 
@@ -43,16 +43,16 @@ export function AngerQuestion({ initialChoice, onSelect, onNext }: AngerQuestion
               whileTap={{ scale: 0.97 }}
               className={`w-full py-4 px-5 rounded-2xl border text-left font-medium text-sm flex items-center justify-between transition-all cursor-pointer shadow-md ${
                 isChosen
-                  ? "bg-[#22161A] border-[#F05A72] text-[#FFF7F1] shadow-[#F05A72]/20"
-                  : "bg-[#191013] border-[#FFF7F5]/10 text-[#CDB9BA] hover:border-[#FFF7F5]/25"
+                  ? "bg-[#F5E9E2] border-2 border-[#F5E9E2] text-[#C53041] font-bold shadow-xl shadow-black/25"
+                  : "bg-[#3A060E]/75 border border-[#F5E9E2]/20 text-[#F5E9E2]/85 hover:border-[#F5E9E2]/45"
               }`}
             >
               <span className="text-base">{opt.label}</span>
               <div
                 className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${
                   isChosen
-                    ? "bg-[#F05A72] border-[#F05A72] text-white"
-                    : "border-[#FFF7F5]/20"
+                    ? "bg-[#C53041] border-[#C53041] text-[#F5E9E2]"
+                    : "border-[#F5E9E2]/30"
                 }`}
               >
                 {isChosen && <Check className="w-3 h-3 stroke-[3]" />}
@@ -71,7 +71,7 @@ export function AngerQuestion({ initialChoice, onSelect, onNext }: AngerQuestion
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="p-3.5 bg-[#22161A]/80 border border-[#F05A72]/20 rounded-xl text-xs text-[#FF91A4] font-medium"
+              className="p-3.5 bg-[#F5E9E2]/15 border border-[#F5E9E2]/30 rounded-xl text-xs text-[#F5E9E2] font-medium"
             >
               {currentOption.response}
             </motion.div>
@@ -85,10 +85,10 @@ export function AngerQuestion({ initialChoice, onSelect, onNext }: AngerQuestion
         disabled={!selected}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.95 }}
-        className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#F05A72] to-[#FF91A4] text-white font-medium text-sm shadow-lg shadow-[#F05A72]/25 flex items-center justify-center gap-2 cursor-pointer transition-all disabled:opacity-40 disabled:pointer-events-none"
+        className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer transition-all hover:bg-white disabled:opacity-40 disabled:pointer-events-none"
       >
         <span>Let&apos;s see the damage</span>
-        <ArrowRight className="w-4 h-4" />
+        <ArrowRight className="w-4 h-4 text-[#C53041]" />
       </motion.button>
     </div>
   );
