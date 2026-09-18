@@ -49,6 +49,10 @@ export default function ApologyPage() {
 
   // Lazy state initializers so values hydrate seamlessly
   const [scene, setScene] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      const urlScene = new URLSearchParams(window.location.search).get("scene");
+      if (urlScene) return parseInt(urlScene, 10);
+    }
     return getStoredProgress()?.scene ?? 1;
   });
 

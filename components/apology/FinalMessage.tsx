@@ -86,10 +86,13 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
             Final Dispatch
           </span>
 
-          <h3 className="font-serif text-2xl font-bold text-[#32050B] mb-1 inline-flex items-center gap-2">
+          <h3 className="font-serif text-2xl font-bold text-[#32050B] mb-1 flex items-baseline gap-1.5 flex-nowrap">
             <span>{finalCard.title}</span>
-            <span onClick={handleHeartTap} className="cursor-pointer active:scale-90 transition-transform">
-              <HeartGraphic size={22} inline animate />
+            <span
+              onClick={handleHeartTap}
+              className="cursor-pointer active:scale-90 transition-transform inline-flex items-baseline"
+            >
+              <HeartGraphic size={20} animate align="baseline" />
             </span>
           </h3>
 

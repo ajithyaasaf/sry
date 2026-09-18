@@ -9,6 +9,7 @@ interface HeartGraphicProps {
   animate?: boolean;
   glow?: boolean;
   inline?: boolean;
+  align?: "middle" | "baseline";
 }
 
 export function HeartGraphic({
@@ -17,7 +18,10 @@ export function HeartGraphic({
   animate = false,
   glow = false,
   inline = false,
+  align = "middle",
 }: HeartGraphicProps) {
+  const alignClass = align === "baseline" ? "align-baseline" : "align-middle";
+
   const heartImg = (
     <Image
       src="/main.svg"
@@ -25,14 +29,14 @@ export function HeartGraphic({
       width={size}
       height={size}
       priority
-      className="object-contain select-none pointer-events-none drop-shadow-sm inline-block align-middle"
+      className={`object-contain select-none pointer-events-none drop-shadow-sm inline-block ${alignClass}`}
       style={{ width: `${size}px`, height: `${size}px` }}
     />
   );
 
   if (inline) {
     return (
-      <span className={`inline-flex items-center justify-center align-middle mx-1 ${className}`}>
+      <span className={`inline-flex items-center justify-center ${alignClass} mx-1 ${className}`}>
         {animate ? (
           <motion.span
             animate={{
@@ -56,7 +60,7 @@ export function HeartGraphic({
 
   return (
     <div
-      className={`relative inline-flex items-center justify-center align-middle ${className}`}
+      className={`relative inline-flex items-center justify-center ${alignClass} ${className}`}
       style={{ width: size, height: size }}
     >
       {glow && (

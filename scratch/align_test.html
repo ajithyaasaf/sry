@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    padding: 40px;
+    background: #F5E9E2;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+  .test-row {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #32050B;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    border-bottom: 1px solid rgba(255,0,0,0.3); /* visual baseline guide */
+  }
+  .row-baseline {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .row-items-end {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+  }
+  .row-inline-block {
+    /* natural text flow */
+  }
+  .heart-img {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<div style="margin-bottom: 30px;">
+  <div>1. items-baseline (size 20):</div>
+  <div class="test-row row-baseline">
+    <span>Pvi...</span>
+    <img src="../public/main.svg" class="heart-img" style="vertical-align: baseline;" />
+  </div>
+</div>
+
+<div style="margin-bottom: 30px;">
+  <div>2. inline-block with vertical-align: baseline:</div>
+  <div class="test-row" style="display: block;">
+    <span>Pvi...</span>
+    <img src="../public/main.svg" class="heart-img" style="vertical-align: baseline; margin-left: 6px;" />
+  </div>
+</div>
+
+<div style="margin-bottom: 30px;">
+  <div>3. items-center with relative offset:</div>
+  <div class="test-row" style="display: flex; align-items: center;">
+    <span>Pvi...</span>
+    <img src="../public/main.svg" class="heart-img" style="margin-left: 6px; position: relative; top: 1px;" />
+  </div>
+</div>
+
+<div style="margin-bottom: 30px;">
+  <div>4. inline-block with custom bottom alignment:</div>
+  <div class="test-row" style="display: block;">
+    <span>Pvi...</span>
+    <span style="display: inline-block; vertical-align: -2px; margin-left: 6px;">
+      <img src="../public/main.svg" class="heart-img" style="display: block;" />
+    </span>
+  </div>
+</div>
+
+</body>
+</html>
