@@ -93,7 +93,7 @@ export const apologyContent = {
     prompt: "I think I owe you one more.",
     button: "One last sorry",
     message: "Sorry, Pvi.",
-    subtext: "That one was actually from my heart.",
+    subtext: "For everything I've ever hurt you with.",
   },
 
   finalCard: {
