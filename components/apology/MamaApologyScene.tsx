@@ -30,7 +30,7 @@ export function MamaApologyScene({ onNext }: MamaApologySceneProps) {
         </p>
 
         <p className="text-sm sm:text-base text-[#F5E9E2]/90 leading-relaxed">
-          But, trust me... I really wanted to be there and hld you...
+          But, trust me... I really wanted to be there and hld you tght...
         </p>
 
         <p className="text-sm sm:text-base text-[#F5E9E2]/90 leading-relaxed">

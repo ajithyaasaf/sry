@@ -32,11 +32,11 @@ export function PlayfulTransitionScene({ onNext }: PlayfulTransitionSceneProps) 
         </span>
 
         <h2 className="font-serif text-2xl sm:text-3xl text-[#F5E9E2] font-semibold leading-snug">
-          Okay... that was the serious one. ❤️
+          Okay... that was the serious one.
         </h2>
 
         <p className="text-sm sm:text-base text-[#F5E9E2]/90 leading-relaxed font-medium">
-          Now let&apos;s deal with those 50 sorries you asked for. 😂
+          Now let&apos;s deal with those 50 sorries you asked for. ✨
         </p>
       </motion.div>
 
