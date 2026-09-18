@@ -19,7 +19,7 @@ export const apologyContent = {
     letterGreeting: "..... Pvi,",
     letterBody: "Okay... I'm sorry 😭",
     letterNote: "Now don't judge me. I made a whole website for this.",
-    continueButton: "Continue to the Sorries",
+    continueButton: "Continue ❤️",
   },
 
   apologies: [
@@ -101,8 +101,12 @@ export const apologyContent = {
     heading: "Sorry.",
     p1: "I know I could have just texted a boring apology.",
     p2: "But where's the fun in that?",
-    p3: "Now I've officially said sorry 50 times. Plus one extra.",
-    p4: "Now give me that cute smile and stop being angry 😂",
+    p3: "Now I've officially said sorry 50 times.",
+    p4: "Want to tell you something...",
+    lyrics: `Ellora sirpangal un meedhu kaadhalurum
+Uyire illaadha kal kooda kaamamurum
+Un meedhu kaadhal konda
+Maanudan thaan enna aaguvaan`,
     signoff: "— Aji",
     endTease: "Okay, I'm done. Your message is on its way to Aji ❤️",
   },

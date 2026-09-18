@@ -1,10 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMounted } from "@/lib/useMounted";
+import { Music } from "lucide-react";
 
 import { IntroScene } from "@/components/apology/IntroScene";
+import { MamaApologyScene } from "@/components/apology/MamaApologyScene";
+import { SongScene } from "@/components/apology/SongScene";
+import { PlayfulTransitionScene } from "@/components/apology/PlayfulTransitionScene";
 import { EnvelopeScene } from "@/components/apology/EnvelopeScene";
 import { AngerQuestion } from "@/components/apology/AngerQuestion";
 import { AngerMeter } from "@/components/apology/AngerMeter";
@@ -16,7 +20,7 @@ import { FinalQuestion } from "@/components/apology/FinalQuestion";
 import { CelebrationScene } from "@/components/apology/CelebrationScene";
 import { FinalMessage } from "@/components/apology/FinalMessage";
 
-const STORAGE_KEY = "pvi_apology_progress_v1";
+const STORAGE_KEY = "pvi_apology_progress_v4";
 
 interface SavedProgress {
   scene?: number;
@@ -80,6 +84,46 @@ export default function ApologyPage() {
     return getStoredProgress()?.finalChoice ?? "";
   });
 
+  // Continuous Background Song Controller (starts in SongScene, plays across scenes, stops at FinalMessage)
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isSongPlaying, setIsSongPlaying] = useState(false);
+  const [songSrc, setSongSrc] = useState("/audio/song.mp3");
+
+  const startAndProceed = useCallback((targetScene: number) => {
+    const audio = audioRef.current;
+    if (audio && !isSongPlaying) {
+      audio
+        .play()
+        .then(() => {
+          setIsSongPlaying(true);
+        })
+        .catch((err) => {
+          console.warn("Audio play error:", err);
+        });
+    }
+    setScene(targetScene);
+  }, [isSongPlaying]);
+
+  const toggleSong = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isSongPlaying) {
+      audio.pause();
+      setIsSongPlaying(false);
+    } else {
+      audio
+        .play()
+        .then(() => {
+          setIsSongPlaying(true);
+        })
+        .catch((err) => {
+          console.warn("Audio play error:", err);
+          setIsSongPlaying(false);
+        });
+    }
+  }, [isSongPlaying]);
+
+
   // Persist progress to local storage
   useEffect(() => {
     if (!isMounted) return;
@@ -114,6 +158,11 @@ export default function ApologyPage() {
     try {
       localStorage.removeItem(STORAGE_KEY);
     } catch {}
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsSongPlaying(false);
+    }
     setScene(1);
     setAngerChoice("");
     setAngerLevel(65);
@@ -176,7 +225,7 @@ export default function ApologyPage() {
             exit="exit"
             className="w-full"
           >
-            <EnvelopeScene onNext={() => setScene(3)} />
+            <MamaApologyScene onNext={() => setScene(3)} />
           </motion.div>
         )}
 
@@ -189,10 +238,9 @@ export default function ApologyPage() {
             exit="exit"
             className="w-full"
           >
-            <AngerQuestion
-              initialChoice={angerChoice}
-              onSelect={setAngerChoice}
-              onNext={() => setScene(4)}
+            <SongScene
+              isPlaying={isSongPlaying}
+              onProceed={() => startAndProceed(4)}
             />
           </motion.div>
         )}
@@ -206,11 +254,7 @@ export default function ApologyPage() {
             exit="exit"
             className="w-full"
           >
-            <AngerMeter
-              initialValue={angerLevel}
-              onChange={setAngerLevel}
-              onNext={() => setScene(5)}
-            />
+            <PlayfulTransitionScene onNext={() => setScene(5)} />
           </motion.div>
         )}
 
@@ -223,11 +267,7 @@ export default function ApologyPage() {
             exit="exit"
             className="w-full"
           >
-            <SorryCounter
-              currentCount={sorryCount}
-              onIncrement={setSorryCount}
-              onNext={() => setScene(6)}
-            />
+            <EnvelopeScene onNext={() => setScene(6)} />
           </motion.div>
         )}
 
@@ -240,14 +280,9 @@ export default function ApologyPage() {
             exit="exit"
             className="w-full"
           >
-            <PlayfulQuestions
-              answers={{ smiling, deserved, customDeservedNote, keepSayingSorry }}
-              onAnswer={(key, val) => {
-                if (key === "smiling") setSmiling(val);
-                if (key === "deserved") setDeserved(val);
-                if (key === "customDeservedNote") setCustomDeservedNote(val);
-                if (key === "keepSayingSorry") setKeepSayingSorry(val);
-              }}
+            <AngerQuestion
+              initialChoice={angerChoice}
+              onSelect={setAngerChoice}
               onNext={() => setScene(7)}
             />
           </motion.div>
@@ -262,7 +297,11 @@ export default function ApologyPage() {
             exit="exit"
             className="w-full"
           >
-            <MemoryScene onNext={() => setScene(8)} />
+            <AngerMeter
+              initialValue={angerLevel}
+              onChange={setAngerLevel}
+              onNext={() => setScene(8)}
+            />
           </motion.div>
         )}
 
@@ -275,7 +314,11 @@ export default function ApologyPage() {
             exit="exit"
             className="w-full"
           >
-            <VoiceMessage onNext={() => setScene(9)} />
+            <SorryCounter
+              currentCount={sorryCount}
+              onIncrement={setSorryCount}
+              onNext={() => setScene(9)}
+            />
           </motion.div>
         )}
 
@@ -288,15 +331,15 @@ export default function ApologyPage() {
             exit="exit"
             className="w-full"
           >
-            <FinalQuestion
-              onSelect={setFinalChoice}
-              onProceed={(decision) => {
-                if (decision === "okay") {
-                  setScene(10);
-                } else {
-                  setScene(11);
-                }
+            <PlayfulQuestions
+              answers={{ smiling, deserved, customDeservedNote, keepSayingSorry }}
+              onAnswer={(key, val) => {
+                if (key === "smiling") setSmiling(val);
+                if (key === "deserved") setDeserved(val);
+                if (key === "customDeservedNote") setCustomDeservedNote(val);
+                if (key === "keepSayingSorry") setKeepSayingSorry(val);
               }}
+              onNext={() => setScene(10)}
             />
           </motion.div>
         )}
@@ -310,13 +353,61 @@ export default function ApologyPage() {
             exit="exit"
             className="w-full"
           >
-            <CelebrationScene onNext={() => setScene(11)} />
+            <MemoryScene onNext={() => setScene(11)} />
           </motion.div>
         )}
 
         {scene === 11 && (
           <motion.div
             key="scene-11"
+            variants={sceneVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="w-full"
+          >
+            <VoiceMessage onNext={() => setScene(12)} />
+          </motion.div>
+        )}
+
+        {scene === 12 && (
+          <motion.div
+            key="scene-12"
+            variants={sceneVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="w-full"
+          >
+            <FinalQuestion
+              onSelect={setFinalChoice}
+              onProceed={(decision) => {
+                if (decision === "okay") {
+                  setScene(13);
+                } else {
+                  setScene(14);
+                }
+              }}
+            />
+          </motion.div>
+        )}
+
+        {scene === 13 && (
+          <motion.div
+            key="scene-13"
+            variants={sceneVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="w-full"
+          >
+            <CelebrationScene onNext={() => setScene(14)} />
+          </motion.div>
+        )}
+
+        {scene === 14 && (
+          <motion.div
+            key="scene-14"
             variants={sceneVariants}
             initial="initial"
             animate="animate"
@@ -330,6 +421,39 @@ export default function ApologyPage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Root audio element that plays continuously across scenes until scene 12 */}
+      <audio
+        ref={audioRef}
+        src={songSrc}
+        loop
+        playsInline
+        preload="auto"
+        onError={() => {
+          if (songSrc === "/audio/song.mp3") {
+            setSongSrc("/audio/sng-3.mp3");
+          } else if (songSrc === "/audio/sng-3.mp3") {
+            setSongSrc("/audio/sng-2.mp3");
+          }
+        }}
+        onPause={() => setIsSongPlaying(false)}
+        onPlay={() => setIsSongPlaying(true)}
+      />
+
+      {/* Subtle floating music indicator on subsequent scenes including final message */}
+      {isSongPlaying && scene >= 4 && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          onClick={toggleSong}
+          className="fixed top-4 right-4 z-50 py-1.5 px-3 rounded-full bg-[#3A060E]/85 border border-[#F5E9E2]/30 text-[#F5E9E2] shadow-lg backdrop-blur-sm flex items-center gap-1.5 text-xs font-mono cursor-pointer hover:bg-[#3A060E] active:scale-95 transition-transform"
+          aria-label="Pause or play song"
+        >
+          <Music className="w-3.5 h-3.5 animate-pulse text-[#F5E9E2]" />
+          <span className="text-[11px] font-sans">Playing</span>
+        </motion.button>
+      )}
     </main>
   );
 }

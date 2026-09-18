@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { apologyContent } from "@/content/apology";
 import { HeartGraphic } from "@/components/ui/HeartGraphic";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { Send, RotateCcw, AlertCircle, MessageSquare } from "lucide-react";
 
 interface FinalMessageProps {
@@ -85,25 +86,34 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
             Final Dispatch
           </span>
 
-          <h3 className="font-serif text-2xl font-bold text-[#32050B] mb-1">
-            {finalCard.title}
-          </h3>
-
-          <p className="font-serif text-xl text-[#C53041] font-semibold mb-4 inline-flex items-center gap-1.5">
-            <span>{finalCard.heading}</span>
+          <h3 className="font-serif text-2xl font-bold text-[#32050B] mb-1 inline-flex items-center gap-2">
+            <span>{finalCard.title}</span>
             <span onClick={handleHeartTap} className="cursor-pointer active:scale-90 transition-transform">
               <HeartGraphic size={22} inline animate />
             </span>
+          </h3>
+
+          <p className="font-serif text-xl text-[#C53041] font-semibold mb-4">
+            {finalCard.heading}
           </p>
 
           <div className="space-y-3 text-xs sm:text-sm text-[#32050B]/90 leading-relaxed font-sans">
             <p>{finalCard.p1}</p>
             <p className="italic text-[#32050B]/75">{finalCard.p2}</p>
             <p className="font-medium text-[#32050B]">{finalCard.p3}</p>
-            {/* Replaced 'Now come talk to me' with cute teasing line */}
-            <p className="font-semibold text-[#C53041] text-sm pt-1">
-              {finalCard.p4}
-            </p>
+            {finalCard.p4 && (
+              <p className="font-semibold text-[#C53041] text-sm pt-1">
+                {finalCard.p4}
+              </p>
+            )}
+
+            {"lyrics" in finalCard && Boolean((finalCard as Record<string, unknown>).lyrics) && (
+              <div className="pt-3 pb-1 border-t border-[#C53041]/15 my-2">
+                <p className="font-serif italic text-xs sm:text-sm text-[#C53041] font-semibold leading-relaxed whitespace-pre-line tracking-wide">
+                  &ldquo;{String((finalCard as Record<string, unknown>).lyrics)}&rdquo;
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Signoff: — Aji [heart] */}
@@ -141,7 +151,7 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
               <textarea
                 value={pviMessage}
                 onChange={(e) => setPviMessage(e.target.value)}
-                placeholder="Type anything you want to tell Aji before sending... (optional) ✍️"
+                placeholder="Type anything you want to tell Aji before sending... ✍️"
                 rows={3}
                 className="w-full p-3.5 bg-[#220408] border border-[#F5E9E2]/30 rounded-2xl text-xs sm:text-sm text-[#F5E9E2] placeholder-[#F5E9E2]/40 focus:outline-none focus:border-[#F5E9E2] transition-colors resize-none shadow-inner"
               />
@@ -184,6 +194,18 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
             <p className="text-xs text-[#32050B]/85 leading-relaxed pt-1">
               Now go tease him in real life and demand your apology snacks from Him 😂❤️
             </p>
+
+            <a
+              href={getWhatsAppUrl(
+                responseId,
+                `❤️ Pvi completed your apology website!\n\nNote: ${pviMessage || "(No note)"}`
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3 px-4 rounded-2xl bg-[#25D366] text-white font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 hover:bg-[#20bd5a] transition-all cursor-pointer mt-3"
+            >
+              <span>Notify Aji on WhatsApp 💬</span>
+            </a>
           </motion.div>
         )}
 

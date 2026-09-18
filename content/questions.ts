@@ -58,7 +58,7 @@ export const checkinQuestions = [
       { id: "forgiveness", label: "Forgiveness 🥺", response: "Best answer ever ❤️" },
       { id: "snacks", label: "Snacks 🍫", response: "Deal! What do you want to eat?" },
       { id: "all", label: "All of the above 😂", response: "Fair enough, I brought this on myself." },
-      { id: "something_else", label: "Something else... ✍️", response: "Tell me below what I deserve! 😇" },
+      { id: "something_else", label: "Something else... 🌙", response: "Tell me below what I deserve! 😇" },
     ],
   },
   {

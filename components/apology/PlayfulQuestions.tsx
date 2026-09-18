@@ -43,7 +43,7 @@ export function PlayfulQuestions({ answers, onAnswer, onNext }: PlayfulQuestions
     const val = e.target.value;
     setCustomText(val);
     onAnswer("customDeservedNote", val);
-    onAnswer("deserved", val ? `Custom: ${val}` : "Something else... ✍️");
+    onAnswer("deserved", val ? `Custom: ${val}` : "Something else.......");
   }
 
   function handleStepAdvance() {
@@ -65,13 +65,12 @@ export function PlayfulQuestions({ answers, onAnswer, onNext }: PlayfulQuestions
           {checkinQuestions.map((_, idx) => (
             <div
               key={idx}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                idx === currentStep
-                  ? "w-8 bg-[#F5E9E2]"
-                  : idx < currentStep
+              className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentStep
+                ? "w-8 bg-[#F5E9E2]"
+                : idx < currentStep
                   ? "w-4 bg-[#F5E9E2]/60"
                   : "w-4 bg-[#F5E9E2]/15"
-              }`}
+                }`}
             />
           ))}
         </div>
@@ -105,19 +104,17 @@ export function PlayfulQuestions({ answers, onAnswer, onNext }: PlayfulQuestions
                     onClick={() => handleSelect(opt.label)}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.97 }}
-                    className={`w-full py-3.5 px-4 rounded-2xl border text-left font-medium text-sm flex items-center justify-between transition-all cursor-pointer shadow-md ${
-                      isSelected
-                        ? "bg-[#F5E9E2] border-2 border-[#F5E9E2] text-[#C53041] font-bold shadow-xl shadow-black/25"
-                        : "bg-[#3A060E]/75 border border-[#F5E9E2]/20 text-[#F5E9E2]/85 hover:border-[#F5E9E2]/45"
-                    }`}
+                    className={`w-full py-3.5 px-4 rounded-2xl border text-left font-medium text-sm flex items-center justify-between transition-all cursor-pointer shadow-md ${isSelected
+                      ? "bg-[#F5E9E2] border-2 border-[#F5E9E2] text-[#C53041] font-bold shadow-xl shadow-black/25"
+                      : "bg-[#3A060E]/75 border border-[#F5E9E2]/20 text-[#F5E9E2]/85 hover:border-[#F5E9E2]/45"
+                      }`}
                   >
                     <span className="text-sm sm:text-base">{opt.label}</span>
                     <div
-                      className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${
-                        isSelected
-                          ? "bg-[#C53041] border-[#C53041] text-[#F5E9E2]"
-                          : "border-[#F5E9E2]/30"
-                      }`}
+                      className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${isSelected
+                        ? "bg-[#C53041] border-[#C53041] text-[#F5E9E2]"
+                        : "border-[#F5E9E2]/30"
+                        }`}
                     >
                       {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
                     </div>
@@ -176,7 +173,9 @@ export function PlayfulQuestions({ answers, onAnswer, onNext }: PlayfulQuestions
           whileTap={{ scale: 0.95 }}
           className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer hover:bg-white disabled:opacity-40 disabled:pointer-events-none transition-all"
         >
-          <span>{currentStep < checkinQuestions.length - 1 ? "Next Question" : "Continue"}</span>
+          <span>
+            {currentStep < checkinQuestions.length - 1 ? "Next Question" : "Continue"}
+          </span>
           <ArrowRight className="w-4 h-4 text-[#C53041]" />
         </motion.button>
       </div>
