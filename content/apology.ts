@@ -59,7 +59,7 @@ export const apologyContent = {
     "Sorry for making your blood pressure go up 📈",
     "Sorry for not bribing you with food immediately.",
     "Sorry for being a walking headache yesterday.",
-    "Sorry for not giving you the princess treatment you deserve 👑",
+    "Sorry for Lokesh issue.....",
     "Sorry for taking you for granted even for a second.",
     "Sorry for being slow to apologize properly.",
     "Sorry for all the eye-rolls I caused.",
