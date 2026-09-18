@@ -126,15 +126,15 @@ export function SorryCounter({ currentCount, onIncrement, onNext }: SorryCounter
               onClick={handleTap}
               whileTap={{ scale: 0.9 }}
               whileHover={{ scale: 1.03 }}
-              className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[#F5E9E2] p-1 shadow-2xl shadow-black/35 flex items-center justify-center cursor-pointer transition-shadow hover:shadow-black/50 focus:outline-none"
+              className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-[#F5E9E2] p-1.5 shadow-2xl shadow-black/35 flex items-center justify-center cursor-pointer transition-shadow hover:shadow-black/50 focus:outline-none"
               aria-label="Tap to say sorry"
             >
-              <div className="w-full h-full rounded-full bg-[#C53041] border-2 border-[#F5E9E2] flex flex-col items-center justify-center gap-0.5 sm:gap-1">
-                <HeartGraphic size={28} glow={false} />
-                <span className="font-serif font-bold text-base sm:text-xl text-[#F5E9E2] tracking-wider flex items-center gap-1">
+              <div className="w-full h-full rounded-full bg-[#C53041] border-2 border-[#F5E9E2] flex flex-col items-center justify-center gap-1">
+                <HeartGraphic size={32} glow={false} />
+                <span className="font-serif font-bold text-lg sm:text-xl text-[#F5E9E2] tracking-wider flex items-center gap-1">
                   SORRY
                 </span>
-                <span className="text-[9px] sm:text-[10px] font-mono text-[#F5E9E2]/85 font-medium uppercase">
+                <span className="text-[10px] font-mono text-[#F5E9E2]/85 font-medium uppercase">
                   Tap #{count + 1}
                 </span>
               </div>
