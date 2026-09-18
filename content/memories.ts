@@ -8,6 +8,6 @@ export interface MemoryConfig {
 export const memory: MemoryConfig = {
   enabled: false,
   image: "/images/memory.jpg",
-  caption: "My only favourite place is... ❤️",
+  caption: "My only favourite place is ... ❤️",
   subcaption: "Just a small reminder that don't stress yourself for everthing",
 };
