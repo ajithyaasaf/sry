@@ -38,7 +38,7 @@ export function ShutdownScreen() {
           </h1>
 
           <p className="text-sm text-[#F5E9E2]/60 font-sans max-w-xs mx-auto leading-relaxed">
-            This application is temporarily unavailable. Please check back later.
+            Avantaye ennanu kelu.....
           </p>
         </div>
       </motion.div>
