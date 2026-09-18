@@ -4,8 +4,8 @@ export const apologyContent = {
 
   intro: {
     greeting: "Hey Pvi...",
-    line1: "I know you're angry 😭",
-    line2: "Okay okay...",
+    line1: "I know you're angry 🥺",
+    // line2: "Okay okay...",
     line3: "You asked me to say sorry 50 times.",
     line4: "So I made a solution.",
     button: "Let's do this",
@@ -17,7 +17,7 @@ export const apologyContent = {
       "Since you asked for 50 sorries, I have decided to take this request VERY seriously.",
     tease: "Unfortunately for you, I'm also making you count them. 😂",
     button: "Open it",
-    letterGreeting: "Dear Pvi,",
+    letterGreeting: "..... Pvi,",
     letterBody: "Okay... I'm sorry 😭",
     letterNote: "Now don't judge me. I made a whole website for this.",
     continueButton: "Continue to the Sorries",

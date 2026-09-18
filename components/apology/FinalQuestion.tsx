@@ -22,20 +22,20 @@ export function FinalQuestion({ onSelect, onProceed }: FinalQuestionProps) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-between px-4 py-8 min-h-[82vh] max-w-sm mx-auto text-center">
+    <div className="flex flex-col items-center justify-center px-4 py-8 min-h-[75vh] max-w-sm mx-auto text-center space-y-8">
       {/* Header */}
-      <div className="w-full">
-        <HeartGraphic size={64} animate glow className="mb-4" />
-        <span className="text-xs font-mono uppercase tracking-widest text-[#F5E9E2]/80 font-semibold">
+      <div className="w-full space-y-2">
+        <HeartGraphic size={64} animate glow className="mx-auto mb-3" />
+        <span className="text-xs font-mono uppercase tracking-widest text-[#F5E9E2]/80 font-semibold block">
           {config.title}
         </span>
-        <h2 className="font-serif text-3xl sm:text-4xl text-[#F5E9E2] font-medium mt-2">
+        <h2 className="font-serif text-3xl sm:text-4xl text-[#F5E9E2] font-medium leading-tight">
           {config.subtitle}
         </h2>
       </div>
 
-      {/* Decision Buttons */}
-      <div className="w-full my-auto space-y-4 py-6">
+      {/* Decision Buttons or Reaction Card */}
+      <div className="w-full space-y-4">
         {!selected ? (
           <div className="space-y-3.5">
             <motion.button
@@ -58,66 +58,77 @@ export function FinalQuestion({ onSelect, onProceed }: FinalQuestionProps) {
             </motion.button>
           </div>
         ) : selected === "okay" ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-[#F5E9E2] text-[#32050B] border-2 border-[#C53041]/20 rounded-3xl p-6 text-center space-y-3 shadow-2xl"
-          >
-            <div className="w-12 h-12 rounded-full bg-[#C53041]/15 text-[#C53041] flex items-center justify-center mx-auto">
-              <ThumbsUp className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-2xl font-bold text-[#32050B]">
-              {config.options.okay.heading}
-            </h3>
-            <p className="text-sm text-[#C53041] font-semibold">
-              {config.options.okay.message}
-            </p>
-            <p className="text-xs text-[#32050B]/80">
-              {config.options.okay.p1}
-            </p>
-            <p className="text-xs text-[#C53041] font-semibold italic">
-              {config.options.okay.p2}
-            </p>
-          </motion.div>
-        ) : (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-[#F5E9E2] text-[#32050B] border-2 border-[#C53041]/20 rounded-3xl p-6 text-center space-y-3 shadow-2xl"
-          >
-            <div className="w-12 h-12 rounded-full bg-[#C53041]/15 text-[#C53041] flex items-center justify-center mx-auto">
-              <ShieldAlert className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-2xl font-bold text-[#32050B]">
-              {config.options.angry.heading}
-            </h3>
-            <p className="text-sm text-[#C53041] font-semibold">
-              {config.options.angry.message}
-            </p>
-            <p className="text-xs text-[#32050B]/80">
-              {config.options.angry.p1}
-            </p>
-            <p className="text-xs text-[#C53041] font-semibold italic">
-              {config.options.angry.p2}
-            </p>
-          </motion.div>
-        )}
-      </div>
+          <div className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-[#F5E9E2] text-[#32050B] border-2 border-[#C53041]/20 rounded-3xl p-6 text-center space-y-3 shadow-2xl"
+            >
+              <div className="w-12 h-12 rounded-full bg-[#C53041]/15 text-[#C53041] flex items-center justify-center mx-auto">
+                <ThumbsUp className="w-6 h-6" />
+              </div>
+              <h3 className="font-serif text-2xl font-bold text-[#32050B]">
+                {config.options.okay.heading}
+              </h3>
+              <p className="text-sm text-[#C53041] font-semibold">
+                {config.options.okay.message}
+              </p>
+              <p className="text-xs text-[#32050B]/80">
+                {config.options.okay.p1}
+              </p>
+              <p className="text-xs text-[#C53041] font-semibold italic">
+                {config.options.okay.p2}
+              </p>
+            </motion.div>
 
-      {/* Advance Button (only after choice) */}
-      <div className="w-full">
-        {selected && (
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            onClick={() => onProceed(selected === "okay" ? "okay" : "angry")}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer hover:bg-white transition-all"
-          >
-            <span>Continue to final note</span>
-            <ArrowRight className="w-4 h-4 text-[#C53041]" />
-          </motion.button>
+            <motion.button
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              onClick={() => onProceed("okay")}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer hover:bg-white transition-all"
+            >
+              <span>Continue to celebration 🎉</span>
+              <ArrowRight className="w-4 h-4 text-[#C53041]" />
+            </motion.button>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-[#F5E9E2] text-[#32050B] border-2 border-[#C53041]/20 rounded-3xl p-6 text-center space-y-3 shadow-2xl"
+            >
+              <div className="w-12 h-12 rounded-full bg-[#C53041]/15 text-[#C53041] flex items-center justify-center mx-auto">
+                <ShieldAlert className="w-6 h-6" />
+              </div>
+              <h3 className="font-serif text-2xl font-bold text-[#32050B]">
+                {config.options.angry.heading}
+              </h3>
+              <p className="text-sm text-[#C53041] font-semibold">
+                {config.options.angry.message}
+              </p>
+              <p className="text-xs text-[#32050B]/80">
+                {config.options.angry.p1}
+              </p>
+              <p className="text-xs text-[#C53041] font-semibold italic">
+                {config.options.angry.p2}
+              </p>
+            </motion.div>
+
+            <motion.button
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              onClick={() => onProceed("angry")}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full py-4 px-6 rounded-2xl bg-[#F5E9E2] text-[#C53041] font-bold text-sm shadow-xl shadow-black/25 flex items-center justify-center gap-2 cursor-pointer hover:bg-white transition-all"
+            >
+              <span>Continue to final note</span>
+              <ArrowRight className="w-4 h-4 text-[#C53041]" />
+            </motion.button>
+          </div>
         )}
       </div>
     </div>

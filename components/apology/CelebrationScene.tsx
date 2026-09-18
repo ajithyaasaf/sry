@@ -25,7 +25,7 @@ export function CelebrationScene({ onNext }: CelebrationSceneProps) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-between px-4 py-8 min-h-[82vh] max-w-sm mx-auto text-center relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center px-4 py-8 min-h-[75vh] max-w-sm mx-auto text-center relative overflow-hidden space-y-8">
       {/* Gentle Floating Confetti particles */}
       {!shouldReduceMotion && (
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
@@ -69,7 +69,7 @@ export function CelebrationScene({ onNext }: CelebrationSceneProps) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="w-full my-auto space-y-4 py-6"
+        className="w-full space-y-3"
       >
         <h2 className="font-serif text-3xl sm:text-4xl text-[#F5E9E2] font-bold">
           YESSS 😭❤️
@@ -84,7 +84,7 @@ export function CelebrationScene({ onNext }: CelebrationSceneProps) {
       </motion.div>
 
       {/* CTA Button */}
-      <div className="w-full">
+      <div className="w-full pt-2">
         <motion.button
           onClick={onNext}
           whileHover={{ scale: 1.02 }}

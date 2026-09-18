@@ -17,7 +17,7 @@ export function MemoryScene({ onNext }: MemorySceneProps) {
   const showRealPhoto = memory.enabled && !imageError;
 
   return (
-    <div className="flex flex-col items-center justify-between px-4 py-8 min-h-[82vh] max-w-sm mx-auto text-center">
+    <div className="flex flex-col items-center justify-center px-4 py-8 min-h-[75vh] max-w-sm mx-auto text-center space-y-6">
       {/* Top Header */}
       <div className="w-full">
         <span className="text-xs font-mono uppercase tracking-widest text-[#F5E9E2]/80 font-semibold flex items-center justify-center gap-1">
@@ -29,7 +29,7 @@ export function MemoryScene({ onNext }: MemorySceneProps) {
       </div>
 
       {/* Centerpiece: Polaroid or Keepsake card */}
-      <div className="w-full my-auto py-4">
+      <div className="w-full">
         {showRealPhoto ? (
           /* Polaroid Frame with Real Photo in Warm Silk Cream */
           <motion.div

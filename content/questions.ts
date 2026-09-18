@@ -82,11 +82,11 @@ export const finalQuestionConfig = {
       heading: "YESSS! 🎉",
       message: "Mission accomplished.",
       p1: "I'll try not to annoy you again.",
-      p2: "...no promises though 😂❤️",
+      p2: "...no promises though ❤️",
     },
     angry: {
       label: "Still angry 😤",
-      heading: "Okay okay 😭",
+      heading: "Okay okay...",
       message: "I'll give you some time.",
       p1: "Take as long as you need.",
       p2: "But at least I completed your 50-sorry assignment 😂❤️",

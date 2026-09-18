@@ -83,7 +83,7 @@ export function VoiceMessage({ onNext }: VoiceMessageProps) {
   // If audio is confirmed missing, provide an automatic gentle bypass
   if (audioAvailable === false) {
     return (
-      <div className="flex flex-col items-center justify-between px-4 py-8 min-h-[82vh] max-w-sm mx-auto text-center">
+      <div className="flex flex-col items-center justify-center px-4 py-8 min-h-[75vh] max-w-sm mx-auto text-center space-y-6">
         <div className="w-full">
           <span className="text-xs font-mono uppercase tracking-widest text-[#F5E9E2]/80 font-semibold">
             One more thing...
@@ -93,7 +93,7 @@ export function VoiceMessage({ onNext }: VoiceMessageProps) {
           </h2>
         </div>
 
-        <div className="w-full my-auto py-6 bg-[#3A060E]/75 border border-[#F5E9E2]/20 rounded-3xl p-6 shadow-2xl space-y-3">
+        <div className="w-full bg-[#3A060E]/75 border border-[#F5E9E2]/20 rounded-3xl p-6 shadow-2xl space-y-3">
           <div className="w-12 h-12 rounded-full bg-[#F5E9E2]/15 flex items-center justify-center mx-auto text-[#F5E9E2]">
             <Mic className="w-5 h-5" />
           </div>
@@ -121,7 +121,7 @@ export function VoiceMessage({ onNext }: VoiceMessageProps) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-between px-4 py-8 min-h-[82vh] max-w-sm mx-auto text-center">
+    <div className="flex flex-col items-center justify-center px-4 py-8 min-h-[75vh] max-w-sm mx-auto text-center space-y-6">
       {/* Hidden Native Audio Element */}
       <audio
         ref={audioRef}
@@ -145,7 +145,7 @@ export function VoiceMessage({ onNext }: VoiceMessageProps) {
       </div>
 
       {/* Touch-Friendly Player Card */}
-      <div className="w-full my-auto py-6">
+      <div className="w-full">
         <div className="bg-[#3A060E]/75 border border-[#F5E9E2]/20 rounded-3xl p-6 shadow-2xl space-y-5">
           {/* Big Circular Play Button in Silk Cream */}
           <motion.button
