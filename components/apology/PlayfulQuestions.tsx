@@ -131,7 +131,7 @@ export function PlayfulQuestions({ answers, onAnswer, onNext }: PlayfulQuestions
                       <div className="relative flex items-center">
                         <input
                           type="text"
-                          placeholder="Type what I deserve... (e.g. Ice cream, treats 🍫)"
+                          placeholder="Type what I deserve..."
                           value={customText}
                           onChange={handleCustomTextChange}
                           autoFocus

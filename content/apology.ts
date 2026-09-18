@@ -99,8 +99,8 @@ export const apologyContent = {
   finalCard: {
     title: "Pvi...",
     heading: "Sorry.",
-    p1: "I know I could have just texted a boring apology.",
-    p2: "But where's the fun in that?",
+    p1: "Hope you fogive me.",
+    p2: "But still angry at you for..❤️",
     p3: "Now I've officially said sorry 50 times.",
     p4: "Want to tell you something...",
     lyrics: `Ellora sirpangal un meedhu kaadhalurum
