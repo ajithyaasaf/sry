@@ -17,7 +17,7 @@ export const apologyContent = {
     tease: "Unfortunately for you, I'm also making you count them. 😂",
     button: "Open it",
     letterGreeting: "..... Pvi,",
-    letterBody: "Okay... I'm sorry 😭",
+    letterBody: "I'm sorry 😕",
     letterNote: "Now don't judge me. I made a whole website for this.",
     continueButton: "Continue ❤️",
   },
