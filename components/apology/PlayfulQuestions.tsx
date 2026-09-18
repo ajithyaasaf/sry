@@ -104,19 +104,19 @@ export function PlayfulQuestions({ answers, onAnswer, onNext }: PlayfulQuestions
                     onClick={() => handleSelect(opt.label)}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.97 }}
-                    className={`w-full py-2.5 sm:py-3.5 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl border text-left font-medium text-xs sm:text-sm flex items-center justify-between transition-all cursor-pointer shadow-md ${isSelected
+                    className={`w-full py-3 sm:py-3.5 px-4 sm:px-5 rounded-2xl border text-left font-medium text-sm sm:text-base flex items-center justify-between transition-all cursor-pointer shadow-md ${isSelected
                       ? "bg-[#F5E9E2] border-2 border-[#F5E9E2] text-[#C53041] font-bold shadow-xl shadow-black/25"
                       : "bg-[#3A060E]/75 border border-[#F5E9E2]/20 text-[#F5E9E2]/85 hover:border-[#F5E9E2]/45"
                       }`}
                   >
-                    <span className="text-xs sm:text-sm">{opt.label}</span>
+                    <span className="text-sm sm:text-base">{opt.label}</span>
                     <div
-                      className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full border flex items-center justify-center transition-colors ${isSelected
+                      className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${isSelected
                         ? "bg-[#C53041] border-[#C53041] text-[#F5E9E2]"
                         : "border-[#F5E9E2]/30"
                         }`}
                     >
-                      {isSelected && <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]" />}
+                      {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
                     </div>
                   </motion.button>
 
@@ -135,9 +135,9 @@ export function PlayfulQuestions({ answers, onAnswer, onNext }: PlayfulQuestions
                           value={customText}
                           onChange={handleCustomTextChange}
                           autoFocus
-                          className="w-full py-2 sm:py-2.5 pl-8 pr-3 bg-[#220408] border border-[#F5E9E2]/40 rounded-xl text-xs sm:text-sm text-[#F5E9E2] placeholder-[#F5E9E2]/40 focus:outline-none focus:border-[#F5E9E2] shadow-inner"
+                          className="w-full py-2.5 sm:py-3 pl-9 pr-3 bg-[#220408] border border-[#F5E9E2]/40 rounded-xl text-xs sm:text-sm text-[#F5E9E2] placeholder-[#F5E9E2]/40 focus:outline-none focus:border-[#F5E9E2] shadow-inner"
                         />
-                        <Edit3 className="w-3.5 h-3.5 text-[#F5E9E2] absolute left-2.5 pointer-events-none" />
+                        <Edit3 className="w-4 h-4 text-[#F5E9E2] absolute left-3 pointer-events-none" />
                       </div>
                     </motion.div>
                   )}
