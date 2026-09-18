@@ -69,7 +69,7 @@ export function MemoryScene({ onNext }: MemorySceneProps) {
                 {memory.caption}
               </p>
               <p className="text-xs text-[#F5E9E2]/80 leading-relaxed">
-                {memory.subcaption || "Even when you're angry, you're still the cutest person I know."}
+                {memory.subcaption || "Just a small reminder that don't eat biscuits"}
               </p>
             </div>
 

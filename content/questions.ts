@@ -28,7 +28,7 @@ export const initialQuestion = {
 
 export const angerMeterConfig = {
   title: "Okay, be honest.",
-  subtitle: "Drag the slider to your exact anger percentage:",
+  subtitle: "Drag the slider to your exact anger percentage — you can tell me honestly ❤️",
   ranges: [
     { min: 0, max: 20, emoji: "😇", text: "Wow. You're basically fine." },
     { min: 21, max: 40, emoji: "😐", text: "Okay... slightly annoyed." },

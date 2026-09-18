@@ -33,7 +33,23 @@ export function HeartGraphic({
   if (inline) {
     return (
       <span className={`inline-flex items-center justify-center align-middle mx-1 ${className}`}>
-        {heartImg}
+        {animate ? (
+          <motion.span
+            animate={{
+              scale: [1, 1.22, 1],
+            }}
+            transition={{
+              duration: 1.3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="inline-flex items-center justify-center"
+          >
+            {heartImg}
+          </motion.span>
+        ) : (
+          heartImg
+        )}
       </span>
     );
   }

@@ -24,7 +24,7 @@ export const apologyContent = {
   },
 
   apologies: [
-    "Sorry for being annoying",
+    "Sorry for being annoying sometimes",
     "Okay, that one was definitely my fault.",
     "Sorry. No excuses.",
     "Sorry for testing your patience 😇",
@@ -36,7 +36,7 @@ export const apologyContent = {
     "Sorry for making you mad at me 🥺",
     "Sorry for thinking I was right when I clearly wasn't.",
     "Sorry, you win this round 🏳️",
-    "Sorry for being a dramatic clown 🤡",
+    "Sorry for being a dramatic clown in so many things..",
     "Sorry for taking your peaceful mood away.",
     "Sorry for running my mouth without thinking first.",
     "Sorry for being 99% trouble and 1% sweet.",
@@ -48,7 +48,7 @@ export const apologyContent = {
     "Sorry for taking 10 minutes to realize I was wrong.",
     "Sorry for being cute enough to get away with it (wait, sorry 😂)",
     "Sorry for forgetting that you are always right.",
-    "Sorry, Pvi. Seriously, my bad.",
+    "Sorry, Pvi. Seriously, For.....",
     "Sorry for acting like I didn't hear you sigh.",
     "Sorry for not ordering snacks before starting an argument.",
     "Sorry for whatever face I made when you were scolding me.",

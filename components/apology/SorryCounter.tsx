@@ -178,18 +178,15 @@ export function SorryCounter({ currentCount, onIncrement, onNext }: SorryCounter
             </motion.button>
           </motion.div>
         ) : (
-          /* Revealed 51st Genuine Sorry - Matched to Image 2 with Heart after Pvi. */
+          /* Revealed 51st Genuine Sorry - Matched to Image 1: clean card with pulsing heart near Pvi */
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="w-full bg-[#F5E9E2] text-[#32050B] rounded-3xl p-6 sm:p-7 shadow-2xl border-2 border-[#C53041]/20 text-center space-y-3"
           >
-            <div className="mb-2">
-              <HeartGraphic size={56} animate glow={false} className="mx-auto" />
-            </div>
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#C53041] inline-flex items-center justify-center gap-1.5">
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#C53041] inline-flex items-center justify-center gap-2 py-1">
               <span>{bonusSorry.message}</span>
-              <HeartGraphic size={26} inline />
+              <HeartGraphic size={32} animate inline />
             </h3>
             <p className="text-xs sm:text-sm text-[#32050B]/85 font-medium italic pt-1">
               {bonusSorry.subtext}

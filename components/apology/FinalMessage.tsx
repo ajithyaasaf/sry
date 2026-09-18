@@ -74,30 +74,6 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
 
   return (
     <div className="flex flex-col items-center justify-between px-4 py-8 min-h-[85vh] max-w-sm mx-auto text-center">
-      {/* Top Heart with Easter Egg */}
-      <div className="w-full flex flex-col items-center">
-        <div
-          onClick={handleHeartTap}
-          className="cursor-pointer active:scale-90 transition-transform"
-          title="Tap me"
-        >
-          <HeartGraphic size={64} animate={false} glow />
-        </div>
-
-        <AnimatePresence>
-          {easterEggTriggered && (
-            <motion.p
-              initial={{ opacity: 0, y: -5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              className="text-xs text-[#F5E9E2] font-semibold mt-2 bg-[#F5E9E2]/15 px-3 py-1 rounded-full border border-[#F5E9E2]/30"
-            >
-              Okay, why are you still tapping this? 😂❤️
-            </motion.p>
-          )}
-        </AnimatePresence>
-      </div>
-
       {/* The Warm Paper Apology Letter in Silk Cream */}
       <div className="w-full my-auto py-4">
         <motion.div
@@ -115,7 +91,9 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
 
           <p className="font-serif text-xl text-[#C53041] font-semibold mb-4 inline-flex items-center gap-1.5">
             <span>{finalCard.heading}</span>
-            <HeartGraphic size={22} inline />
+            <span onClick={handleHeartTap} className="cursor-pointer active:scale-90 transition-transform">
+              <HeartGraphic size={22} inline animate />
+            </span>
           </p>
 
           <div className="space-y-3 text-xs sm:text-sm text-[#32050B]/90 leading-relaxed font-sans">
@@ -135,6 +113,19 @@ export function FinalMessage({ answers, onRestart }: FinalMessageProps) {
             </span>
           </div>
         </motion.div>
+
+        <AnimatePresence>
+          {easterEggTriggered && (
+            <motion.p
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="text-xs text-[#F5E9E2] font-semibold mt-3 bg-[#F5E9E2]/15 px-3.5 py-1.5 rounded-full border border-[#F5E9E2]/30 inline-block text-center"
+            >
+              Okay, why are you still tapping this? 😂❤️
+            </motion.p>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Message Textbox & Direct Firebase Submission Zone */}
