@@ -3,6 +3,11 @@ import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { AmbientParticles } from "@/components/effects/AmbientParticles";
 import { Grain } from "@/components/effects/Grain";
+import { ShutdownScreen } from "@/components/ShutdownScreen";
+
+// SHUTDOWN / MAINTENANCE TOGGLE
+// Set to "false" (or NEXT_PUBLIC_APP_SHUTDOWN=false in .env) to restore the full application anytime.
+const IS_SHUTDOWN = process.env.NEXT_PUBLIC_APP_SHUTDOWN !== "false";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -26,8 +31,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "For Pvi ❤️ | A Very Serious Apology",
-  description: "I made a ridiculously elaborate website just because you asked for 50 sorries 😂❤️",
+  title: IS_SHUTDOWN ? "Notice" : "For Pvi ❤️ | A Very Serious Apology",
+  description: IS_SHUTDOWN
+    ? "Notice"
+    : "I made a ridiculously elaborate website just because you asked for 50 sorries 😂❤️",
   icons: {
     icon: "/emojis/heart.png",
   },
@@ -50,7 +57,7 @@ export default function RootLayout({
 
         {/* Content Container */}
         <div className="relative z-10 w-full min-h-screen flex flex-col justify-center">
-          {children}
+          {IS_SHUTDOWN ? <ShutdownScreen /> : children}
         </div>
       </body>
     </html>
