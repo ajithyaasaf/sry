@@ -6,8 +6,8 @@ import { Grain } from "@/components/effects/Grain";
 import { ShutdownScreen } from "@/components/ShutdownScreen";
 
 // SHUTDOWN / MAINTENANCE TOGGLE
-// Set to true (or NEXT_PUBLIC_APP_SHUTDOWN=true in .env) if you ever need to temporarily shut down the site
-const IS_SHUTDOWN = process.env.NEXT_PUBLIC_APP_SHUTDOWN === "true";
+// Set to "false" to restore the application anytime
+const IS_SHUTDOWN = true;
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
