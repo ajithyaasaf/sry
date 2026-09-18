@@ -23,7 +23,7 @@ export const apologyContent = {
   },
 
   apologies: [
-    "Sorry for being annoying sometimes",
+    "Sorry for made you cry..",
     "Okay, that one was definitely my fault.",
     "Sorry. No excuses.",
     "Sorry for testing your patience 😇",
